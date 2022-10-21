@@ -1,0 +1,10 @@
+diff --git a/storage/innobase/xtrabackup/src/crc/CMakeLists.txt b/storage/innobase/xtrabackup/src/crc/CMakeLists.txt
+index e2f41410..296b48c5 100644
+--- a/storage/innobase/xtrabackup/src/crc/CMakeLists.txt
++++ b/storage/innobase/xtrabackup/src/crc/CMakeLists.txt
+@@ -31,4 +31,4 @@ ENDIF()
+ CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake
+                ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+ 
+-ADD_LIBRARY(crc crc_glue.cc crc-intel-pclmul.cc)
++ADD_LIBRARY(crc STATIC crc_glue.cc crc-intel-pclmul.cc)

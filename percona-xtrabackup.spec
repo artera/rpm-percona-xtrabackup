@@ -14,6 +14,7 @@ Source: https://www.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-Xtra
 # This is bad - we should use the system boost-devel package!
 Source1: https://boostorg.jfrog.io/artifactory/main/release/1.77.0/source/boost_1_77_0.tar.bz2
 Patch1: https://github.com/percona/percona-server/commit/6076ab35b961d543969abd0610419f3c2bb3ba50.patch
+Patch2: libcrc.patch
 
 # Note the extras/ directory contains a whole lot of bundles libraries
 #      that are statically linked :(
@@ -42,7 +43,7 @@ BuildRequires: vim-common
 BuildRequires: /usr/bin/pathfix.py
 BuildRequires: libudev-devel
 Requires: perl(DBD::mysql)
-Requires: libcurl-minimal
+Requires: libcurl
 Requires: libev
 
 %description
