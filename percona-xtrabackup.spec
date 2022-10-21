@@ -42,9 +42,11 @@ BuildRequires: libev-devel
 BuildRequires: vim-common
 BuildRequires: /usr/bin/pathfix.py
 BuildRequires: libudev-devel
+BuildRequires: protobuf-lite-devel
 Requires: perl(DBD::mysql)
 Requires: libcurl
 Requires: libev
+Requires: protobuf-lite
 
 %description
 Online backup for InnoDB/XtraDB in MySQL, MariaDB and Percona Server.
@@ -68,6 +70,7 @@ pathfix.py -pni "%{__python3} %{py3_shbang_opts}" . ./storage/innobase/xtrabacku
 
 %build
 %cmake -DWITH_BOOST=libboost -DBUILD_CONFIG=xtrabackup_release \
+  -DWITH_PROTOBUF=system \
   -DCMAKE_INSTALL_PREFIX=%{_prefix} -DWITH_SSL=system -DINSTALL_MANDIR=%{_mandir} -DWITH_MAN_PAGES=1 \
   -DINSTALL_MYSQLTESTDIR=%{_datadir}/percona-xtrabackup-test-%{pxbu_major_minor} \
   -DINSTALL_PLUGINDIR="%{_lib}/xtrabackup/plugin" -DFORCE_INSOURCE_BUILD=1
